@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Seed Admin User
         User::updateOrCreate([
-            'email' => 'admin@vendefacil.com',
+            'email' => 'donayrealonso987@gmail.com',
         ], [
             'name' => 'Administrador',
-            'password' => Hash::make('admin12345'),
+            'password' => Hash::make('admin123'),
             'role' => 'admin',
             'is_active' => true,
         ]);
