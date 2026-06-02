@@ -18,6 +18,7 @@ class Product extends Model
         'price',
         'stock',
         'image',
+        'specifications',
         'is_active',
     ];
 
@@ -27,6 +28,7 @@ class Product extends Model
             'price' => 'decimal:2',
             'stock' => 'integer',
             'is_active' => 'boolean',
+            'specifications' => 'array',
         ];
     }
 
