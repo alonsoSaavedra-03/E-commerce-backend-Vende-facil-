@@ -168,12 +168,43 @@ class DatabaseSeeder extends Seeder
         // 4. Seed Settings
         \App\Models\Setting::updateOrCreate(['key' => 'store_name'], ['value' => 'VendeFácil']);
         \App\Models\Setting::updateOrCreate(['key' => 'store_email'], ['value' => 'contacto@vendefacil.com']);
-        \App\Models\Setting::updateOrCreate(['key' => 'store_phone'], ['value' => '+52 (664) 123-4567']);
-        \App\Models\Setting::updateOrCreate(['key' => 'store_currency'], ['value' => 'MXN']);
-        \App\Models\Setting::updateOrCreate(['key' => 'store_shipping_fee'], ['value' => '99.00']);
-        \App\Models\Setting::updateOrCreate(['key' => 'store_free_shipping_threshold'], ['value' => '999.00']);
-        \App\Models\Setting::updateOrCreate(['key' => 'store_address'], ['value' => 'Av. de la Constitución 123, Tijuana, B.C., México']);
+        \App\Models\Setting::updateOrCreate(['key' => 'store_phone'], ['value' => '+51 987 654 321']);
+        \App\Models\Setting::updateOrCreate(['key' => 'store_currency'], ['value' => 'PEN']);
+        \App\Models\Setting::updateOrCreate(['key' => 'store_shipping_fee'], ['value' => '10.00']);
+        \App\Models\Setting::updateOrCreate(['key' => 'store_free_shipping_threshold'], ['value' => '150.00']);
+        \App\Models\Setting::updateOrCreate(['key' => 'store_address'], ['value' => 'Av. Larco 123, Miraflores, Lima, Perú']);
         \App\Models\Setting::updateOrCreate(['key' => 'system_maintenance'], ['value' => '0']);
+
+        $defaultBanners = [
+            [
+                'id' => 1,
+                'title' => 'Tecnología de Vanguardia',
+                'subtitle' => 'Equípate con lo último en laptops, audífonos e insumos a precios insuperables.',
+                'cta' => 'Explorar Tecnología',
+                'categorySlug' => 'electronicos',
+                'gradient' => 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
+                'tag' => 'Nueva Colección'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Rendimiento Deportivo',
+                'subtitle' => 'Zapatillas, indumentaria y accesorios de alto nivel para tus entrenamientos diarios.',
+                'cta' => 'Ver Deportes',
+                'categorySlug' => 'deportes',
+                'gradient' => 'linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%)',
+                'tag' => 'Oferta Especial'
+            ],
+            [
+                'id' => 3,
+                'title' => 'Envíos Gratis a todo el Perú',
+                'subtitle' => 'Recibe tus compras directamente en tu puerta sin costo adicional por compras mayores a S/ 150.',
+                'cta' => 'Comprar Ahora',
+                'categorySlug' => null,
+                'gradient' => 'linear-gradient(135deg, #064e3b 0%, #047857 100%)',
+                'tag' => 'Envío Gratis'
+            ]
+        ];
+        \App\Models\Setting::updateOrCreate(['key' => 'home_banners'], ['value' => json_encode($defaultBanners, JSON_UNESCAPED_UNICODE)]);
     }
 }
 
