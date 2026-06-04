@@ -20,6 +20,13 @@ class ProductController extends Controller
             });
         });
 
+        $query->when($request->string('search')->toString(), function ($query, string $search): void {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        });
+
         $products = $query
             ->orderBy('name')
             ->get();
